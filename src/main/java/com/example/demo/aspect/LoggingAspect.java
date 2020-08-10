@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class LoggingAspect {
 
+    // joinpoint : 어디에 적용할지
     @Around("@annotation(com.example.demo.aspect.annotation.LogExecutionTime)")
     public void printLoggingTime(ProceedingJoinPoint joinPoint) throws Throwable {
 
@@ -22,6 +23,7 @@ public class LoggingAspect {
         System.out.println("args : " + joinPoint.getArgs());
         System.out.println("signature : " + joinPoint.getSignature());
 
+        // advice: 적용할 기능
         // startTime
         long startTime = System.currentTimeMillis();
 
